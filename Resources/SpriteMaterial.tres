@@ -1,0 +1,20 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://ngacuja6ywou"]
+
+[ext_resource type="Texture2D" uid="uid://brbie6s6oibjc" path="res://Assets/snake.png" id="1_bkhei"]
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+depth_draw_mode = 1
+diffuse_mode = 1
+specular_mode = 1
+disable_ambient_light = true
+disable_specular_occlusion = true
+albedo_color = Color(0.019607844, 0.11764706, 0.0627451, 1)
+albedo_texture = ExtResource("1_bkhei")
+backlight_enabled = true
+backlight = Color(1, 1, 1, 1)
+backlight_texture = ExtResource("1_bkhei")
+disable_receive_shadows = true
+stencil_flags = 2

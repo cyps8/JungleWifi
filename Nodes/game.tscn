@@ -1,6 +1,251 @@
 [gd_scene format=3 uid="uid://c48apig8iobh"]
 
 [ext_resource type="Script" uid="uid://cu6jdoo8dgodd" path="res://Scripts/game.gd" id="1_bfc22"]
+[ext_resource type="Material" uid="uid://daguth5dsox6g" path="res://Resources/WorldMaterial.tres" id="2_1sokt"]
+[ext_resource type="Texture2D" uid="uid://cpl1l5jptu3h" path="res://Assets/tree.png" id="2_h85cu"]
+[ext_resource type="Texture2D" uid="uid://jmo10ks3re4n" path="res://Assets/plant.png" id="3_kwr2q"]
+[ext_resource type="Texture2D" uid="uid://brbie6s6oibjc" path="res://Assets/snake.png" id="3_wi60h"]
+[ext_resource type="Script" uid="uid://cmcyfpaofcbsc" path="res://Scripts/cam.gd" id="3_y4gxr"]
+[ext_resource type="Material" uid="uid://ngacuja6ywou" path="res://Resources/SpriteMaterial.tres" id="4_deiy4"]
+[ext_resource type="Texture2D" uid="uid://cvelbpjkuoprv" path="res://Assets/SnakeHead.png" id="6_424rh"]
+[ext_resource type="Shader" uid="uid://bfxtiwpykse0u" path="res://Scripts/Shaders/game.gdshader" id="7_424rh"]
+[ext_resource type="Texture2D" uid="uid://cc2oijfaxwr2d" path="res://Assets/SnakeEye.png" id="7_fhu7r"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h85cu"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+depth_draw_mode = 1
+diffuse_mode = 1
+specular_mode = 1
+disable_ambient_light = true
+disable_specular_occlusion = true
+albedo_color = Color(0.019607844, 0.11764706, 0.0627451, 1)
+albedo_texture = ExtResource("2_h85cu")
+backlight_enabled = true
+backlight = Color(1, 1, 1, 1)
+backlight_texture = ExtResource("2_h85cu")
+disable_receive_shadows = true
+billboard_mode = 2
+billboard_keep_scale = true
+stencil_flags = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u8xq5"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+depth_draw_mode = 1
+diffuse_mode = 1
+specular_mode = 1
+disable_ambient_light = true
+disable_specular_occlusion = true
+albedo_color = Color(0.019607844, 0.11764706, 0.0627451, 1)
+albedo_texture = ExtResource("3_kwr2q")
+backlight_enabled = true
+backlight = Color(1, 1, 1, 1)
+backlight_texture = ExtResource("3_kwr2q")
+disable_receive_shadows = true
+billboard_mode = 2
+billboard_keep_scale = true
+stencil_flags = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_bfc22"]
+material = ExtResource("2_1sokt")
+size = Vector2(4, 4)
+
+[sub_resource type="Environment" id="Environment_s24rg"]
+background_mode = 1
+background_color = Color(0.069671795, 0.19007874, 0.11918641, 1)
+ambient_light_source = 2
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0.023529412, 0.11764706, 0.0627451, 1)
+fog_density = 1.0
+
+[sub_resource type="Compositor" id="Compositor_deiy4"]
+compositor_effects = Array[CompositorEffect]([null])
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_deiy4"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+depth_draw_mode = 1
+diffuse_mode = 1
+specular_mode = 1
+disable_specular_occlusion = true
+albedo_color = Color(0.019607844, 0.11764706, 0.0627451, 1)
+albedo_texture = ExtResource("6_424rh")
+backlight_enabled = true
+backlight = Color(1, 1, 1, 1)
+disable_receive_shadows = true
+billboard_keep_scale = true
+stencil_flags = 2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fhu7r"]
+shader = ExtResource("7_424rh")
+shader_parameter/target_colour = Color(0.019607844, 0.11764706, 0.0627451, 1)
 
 [node name="Game" type="Node3D" unique_id=1551477055]
 script = ExtResource("1_bfc22")
+
+[node name="Map" type="Node3D" parent="." unique_id=2025645338]
+
+[node name="Tree" type="Sprite3D" parent="Map" unique_id=1500296247]
+transform = Transform3D(0.13337803, 0, -0.10434886, 0, 0.16934694, 0, 0.10434886, 0, 0.13337803, 0.432577, 0.3997494, -0.17534757)
+material_override = SubResource("StandardMaterial3D_h85cu")
+texture = ExtResource("2_h85cu")
+
+[node name="Tree2" type="Sprite3D" parent="Map" unique_id=2138429901]
+transform = Transform3D(0.13337803, 0, -0.10434886, 0, 0.16934694, 0, 0.10434886, 0, 0.13337803, 0.45233727, 0.3692084, 0.029912591)
+material_override = SubResource("StandardMaterial3D_h85cu")
+flip_h = true
+texture = ExtResource("2_h85cu")
+
+[node name="Tree12" type="Sprite3D" parent="Map" unique_id=1036998219]
+transform = Transform3D(0.13337803, 0, -0.10434886, 0, 0.16934694, 0, 0.10434886, 0, 0.13337803, 0.49463332, 0.2609117, -0.17151546)
+material_override = SubResource("StandardMaterial3D_h85cu")
+flip_h = true
+texture = ExtResource("2_h85cu")
+
+[node name="Tree13" type="Sprite3D" parent="Map" unique_id=956566571]
+transform = Transform3D(0.13337803, 0, -0.10434886, 0, 0.16934694, 0, 0.10434886, 0, 0.13337803, -0.5149404, 0.1950494, -0.13522208)
+material_override = SubResource("StandardMaterial3D_h85cu")
+flip_h = true
+texture = ExtResource("2_h85cu")
+
+[node name="Tree3" type="Sprite3D" parent="Map" unique_id=1870901419]
+transform = Transform3D(0.13337803, 0, -0.10434886, 0, 0.16934694, 0, 0.10434886, 0, 0.13337803, -0.40332067, 0.36754465, -0.17534757)
+material_override = SubResource("StandardMaterial3D_h85cu")
+texture = ExtResource("2_h85cu")
+
+[node name="Tree4" type="Sprite3D" parent="Map" unique_id=1986013423]
+transform = Transform3D(0.13337803, 0, -0.10434886, 0, 0.16934694, 0, 0.10434886, 0, 0.13337803, -0.5170409, 0.39401537, 0.029912591)
+material_override = SubResource("StandardMaterial3D_h85cu")
+flip_h = true
+texture = ExtResource("2_h85cu")
+
+[node name="Tree14" type="Sprite3D" parent="Map" unique_id=1049334861]
+transform = Transform3D(0.13337803, 0, -0.10434886, 0, 0.16934694, 0, 0.10434886, 0, 0.13337803, -0.5405763, 0.22881371, 0.17525715)
+material_override = SubResource("StandardMaterial3D_h85cu")
+flip_h = true
+texture = ExtResource("2_h85cu")
+
+[node name="Tree15" type="Sprite3D" parent="Map" unique_id=1380116298]
+transform = Transform3D(0.13337803, 0, -0.10434886, 0, 0.16934694, 0, 0.10434886, 0, 0.13337803, 0.49272835, 0.22881371, 0.17525715)
+material_override = SubResource("StandardMaterial3D_h85cu")
+flip_h = true
+texture = ExtResource("2_h85cu")
+
+[node name="Tree5" type="Sprite3D" parent="Map" unique_id=1863827173]
+transform = Transform3D(0.08883492, 0, -0.06950037, 0, 0.112791605, 0, 0.06950037, 0, 0.08883492, -0.45744672, 0.39401537, 0.07239324)
+material_override = SubResource("StandardMaterial3D_u8xq5")
+flip_h = true
+texture = ExtResource("3_kwr2q")
+
+[node name="Tree6" type="Sprite3D" parent="Map" unique_id=308451618]
+transform = Transform3D(0.11630309, 0, -0.09099021, 0, 0.14766729, 0, 0.09099021, 0, 0.11630309, -0.35271096, 0.25494277, 0.009194672)
+material_override = SubResource("StandardMaterial3D_u8xq5")
+texture = ExtResource("3_kwr2q")
+
+[node name="Tree7" type="Sprite3D" parent="Map" unique_id=1262149043]
+transform = Transform3D(0.087528385, 0, -0.068478204, 0, 0.11113274, 0, 0.068478204, 0, 0.087528385, 0.32764727, 0.29031217, 0.009194672)
+material_override = SubResource("StandardMaterial3D_u8xq5")
+flip_h = true
+texture = ExtResource("3_kwr2q")
+
+[node name="Tree10" type="Sprite3D" parent="Map" unique_id=660223672]
+transform = Transform3D(0.20340247, 0, -0.1591328, 0, 0.25825536, 0, 0.1591328, 0, 0.20340247, 0.41886783, 0.16023085, -0.25465918)
+material_override = SubResource("StandardMaterial3D_u8xq5")
+flip_h = true
+texture = ExtResource("3_kwr2q")
+
+[node name="Tree11" type="Sprite3D" parent="Map" unique_id=2065654521]
+transform = Transform3D(0.20340247, 0, -0.1591328, 0, 0.25825536, 0, 0.1591328, 0, 0.20340247, -0.46324533, 0.16023085, -0.25465918)
+material_override = SubResource("StandardMaterial3D_u8xq5")
+texture = ExtResource("3_kwr2q")
+
+[node name="Tree8" type="Sprite3D" parent="Map" unique_id=2024569609]
+transform = Transform3D(0.067446895, 0, -0.052767362, 0, 0.08563574, 0, 0.052767362, 0, 0.067446895, 0.35651618, 0.1705966, 0.148144)
+material_override = SubResource("StandardMaterial3D_u8xq5")
+texture = ExtResource("3_kwr2q")
+
+[node name="Tree16" type="Sprite3D" parent="Map" unique_id=345953342]
+transform = Transform3D(0.05339069, 0, -0.04177043, 0, 0.0677889, 0, 0.04177043, 0, 0.05339069, -0.41291612, 0.10194051, 0.19138)
+material_override = SubResource("StandardMaterial3D_u8xq5")
+texture = ExtResource("3_kwr2q")
+
+[node name="Tree9" type="Sprite3D" parent="Map" unique_id=1339782389]
+transform = Transform3D(0.050345827, 0, -0.03938827, 0, 0.06392291, 0, 0.03938827, 0, 0.050345827, 0.40025032, 0.41428226, 0.1221593)
+material_override = SubResource("StandardMaterial3D_u8xq5")
+flip_h = true
+texture = ExtResource("3_kwr2q")
+
+[node name="Floor" type="MeshInstance3D" parent="." unique_id=1043392862]
+mesh = SubResource("PlaneMesh_bfc22")
+
+[node name="Env" type="WorldEnvironment" parent="." unique_id=1697622186]
+environment = SubResource("Environment_s24rg")
+compositor = SubResource("Compositor_deiy4")
+
+[node name="SpotOut" type="SpotLight3D" parent="." unique_id=1260250990]
+transform = Transform3D(1, 0, 0, 0, 0.14625564, 0.98924685, 0, -0.98924685, 0.14625564, 0, 1.6940401, 0.27866554)
+light_energy = 4.0
+shadow_enabled = true
+spot_range = 3.0
+spot_attenuation = 0.0
+spot_angle = 25.0
+spot_angle_attenuation = 1e-05
+
+[node name="SpotMid" type="SpotLight3D" parent="." unique_id=470501650]
+transform = Transform3D(1, 0, 0, 0, 0.14625564, 0.98924685, 0, -0.98924685, 0.14625564, 0, 1.3051491, 0.22946912)
+light_energy = 4.0
+shadow_enabled = true
+spot_range = 2.0
+spot_attenuation = 0.0
+spot_angle = 25.0
+spot_angle_attenuation = 1e-05
+
+[node name="SpotInn" type="SpotLight3D" parent="." unique_id=432585932]
+transform = Transform3D(1, 0, 0, 0, 0.14625564, 0.98924685, 0, -0.98924685, 0.14625564, 0, 0.8881475, 0.17645504)
+light_energy = 4.0
+shadow_enabled = true
+spot_range = 2.0
+spot_attenuation = 0.0
+spot_angle = 25.0
+spot_angle_attenuation = 1e-05
+
+[node name="Cam" type="Camera3D" parent="." unique_id=996256194]
+transform = Transform3D(1, 0, 0, 0, 0.9891419, 0.14696358, 0, -0.14696358, 0.9891419, 0, 0.26545143, 0.7065684)
+current = true
+fov = 60.0
+script = ExtResource("3_y4gxr")
+
+[node name="Head" type="Sprite3D" parent="." unique_id=46047264]
+transform = Transform3D(0.086286485, 0, 0, 0, 0.08628645, 0, 0, 0, 0.08628645, 0, 0.22512679, -0.027875125)
+material_override = SubResource("StandardMaterial3D_deiy4")
+texture = ExtResource("6_424rh")
+
+[node name="Snake" type="Sprite3D" parent="Head" unique_id=299634020]
+transform = Transform3D(2.210138, 0, 0, 0, 1.602222, 1.5223662, 0, -1.5223662, 1.602222, 0, 1.8305454, -2.260445)
+material_override = ExtResource("4_deiy4")
+texture = ExtResource("3_wi60h")
+
+[node name="Eye" type="Sprite3D" parent="Head" unique_id=833473185]
+transform = Transform3D(1, 0, 0, 0, 0.9970379, 0.07691049, 0, -0.07691049, 0.9970379, -0.78489244, 0.6196356, -0.10136998)
+no_depth_test = true
+texture = ExtResource("7_fhu7r")
+
+[node name="Eye2" type="Sprite3D" parent="Head" unique_id=2133614348]
+transform = Transform3D(0.99776554, 0.066615835, 0.0051386734, -0.066813774, 0.9948098, 0.0767387, 2.6983455e-09, -0.07691076, 0.9970377, 0.776533, 0.53226185, -0.10137126)
+no_depth_test = true
+texture = ExtResource("7_fhu7r")
+
+[node name="World" type="CanvasLayer" parent="." unique_id=1183855860]
+
+[node name="PP" type="ColorRect" parent="World" unique_id=2134548785]
+material = SubResource("ShaderMaterial_fhu7r")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
