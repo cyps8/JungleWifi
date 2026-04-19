@@ -5,8 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://cpl1l5jptu3h" path="res://Assets/tree.png" id="2_h85cu"]
 [ext_resource type="Texture2D" uid="uid://d2k3g0upjwmd4" path="res://Assets/SnakeShocked.png" id="2_i2qiq"]
 [ext_resource type="Texture2D" uid="uid://jmo10ks3re4n" path="res://Assets/plant.png" id="3_kwr2q"]
+[ext_resource type="Texture2D" uid="uid://bdk7msbmc56nn" path="res://Assets/Toad_Shocked.png" id="3_sqp0c"]
 [ext_resource type="Texture2D" uid="uid://brbie6s6oibjc" path="res://Assets/snake.png" id="3_wi60h"]
 [ext_resource type="Script" uid="uid://cmcyfpaofcbsc" path="res://Scripts/cam.gd" id="3_y4gxr"]
+[ext_resource type="Texture2D" uid="uid://b5f61rrjonuh1" path="res://Assets/Cat_shocked.png" id="4_60718"]
 [ext_resource type="Material" uid="uid://ngacuja6ywou" path="res://Resources/SpriteMaterial.tres" id="4_deiy4"]
 [ext_resource type="Texture2D" uid="uid://lod44ahfjns5" path="res://Assets/Plant2.png" id="4_u8xq5"]
 [ext_resource type="PackedScene" uid="uid://b53njqhv7ufeh" path="res://Nodes/grass.tscn" id="5_6tkwo"]
@@ -17,6 +19,8 @@
 [ext_resource type="Script" uid="uid://4q2c44wdkm2e" path="res://Scripts/touch_screen.gd" id="13_bf6po"]
 [ext_resource type="Texture2D" uid="uid://2tr2eepqqkv2" path="res://Assets/Obelisk.png" id="13_oa30g"]
 [ext_resource type="PackedScene" uid="uid://bd8d5vi82caaj" path="res://Nodes/phone.tscn" id="13_sosg4"]
+[ext_resource type="Texture2D" uid="uid://c4m71e612wkjo" path="res://Assets/Toad.png" id="14_c2vpo"]
+[ext_resource type="Texture2D" uid="uid://buv5dp74xfh7k" path="res://Assets/Cat.png" id="15_f6f8p"]
 [ext_resource type="Script" uid="uid://bd6qwatq4slim" path="res://Scripts/moving_grass.gd" id="16_i2qiq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h85cu"]
@@ -126,6 +130,40 @@ disable_receive_shadows = true
 billboard_keep_scale = true
 stencil_flags = 2
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f6f8p"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+depth_draw_mode = 1
+diffuse_mode = 1
+specular_mode = 1
+disable_specular_occlusion = true
+albedo_color = Color(0.019607844, 0.11764706, 0.0627451, 1)
+albedo_texture = ExtResource("15_f6f8p")
+backlight_enabled = true
+backlight = Color(1, 1, 1, 1)
+backlight_texture = ExtResource("15_f6f8p")
+disable_receive_shadows = true
+billboard_keep_scale = true
+stencil_flags = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sqp0c"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+depth_draw_mode = 1
+diffuse_mode = 1
+specular_mode = 1
+disable_specular_occlusion = true
+albedo_color = Color(0.019607844, 0.11764706, 0.0627451, 1)
+albedo_texture = ExtResource("14_c2vpo")
+backlight_enabled = true
+backlight = Color(1, 1, 1, 1)
+backlight_texture = ExtResource("14_c2vpo")
+disable_receive_shadows = true
+billboard_keep_scale = true
+stencil_flags = 2
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fhu7r"]
 shader = ExtResource("7_424rh")
 shader_parameter/target_colour = Color(0.019607844, 0.11764706, 0.0627451, 1)
@@ -158,6 +196,8 @@ size = Vector3(2.4871216, 3.110279, 0.68322754)
 [node name="Game" type="Node3D" unique_id=1551477055]
 script = ExtResource("1_bfc22")
 snake_shook = ExtResource("2_i2qiq")
+toad_shook = ExtResource("3_sqp0c")
+cat_shook = ExtResource("4_60718")
 
 [node name="Map" type="Node3D" parent="." unique_id=2025645338]
 
@@ -376,6 +416,18 @@ transform = Transform3D(0.18918277, 0, 0, 0, 0.1872045, 0.02728682, 0, -0.027286
 visible = false
 material_override = SubResource("StandardMaterial3D_c2vpo")
 texture = ExtResource("13_oa30g")
+
+[node name="Cat" type="Sprite3D" parent="." unique_id=679657003]
+transform = Transform3D(0.07836591, 0, 0, 0, 0.05684554, 0.053942505, 0, -0.053942505, 0.05684554, 0, 0.086, -1)
+visible = false
+material_override = SubResource("StandardMaterial3D_f6f8p")
+texture = ExtResource("15_f6f8p")
+
+[node name="Toad" type="Sprite3D" parent="." unique_id=1403453699]
+transform = Transform3D(0.09590301, 0, 0, 0, 0.09490015, 0.013832592, 0, -0.013832592, 0.09490015, 0, 0.173, -1)
+visible = false
+material_override = SubResource("StandardMaterial3D_sqp0c")
+texture = ExtResource("14_c2vpo")
 
 [node name="World" type="CanvasLayer" parent="." unique_id=1183855860]
 

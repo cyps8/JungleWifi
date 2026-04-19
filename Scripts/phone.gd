@@ -61,6 +61,8 @@ func JuugleMaps(open: bool):
 	var juugle_sequence: Tween = create_tween()
 	juugle_sequence.tween_interval(0.5)
 	juugle_sequence.tween_callback(func(): Game.ins.SetMoving(true))
+	juugle_sequence.tween_interval(1.5)
+	juugle_sequence.tween_callback(func(): IncreaseSignal())
 	juugle_sequence.tween_interval(3.5)
 	juugle_sequence.tween_callback(func(): %Warning.visible = true)
 	juugle_sequence.tween_interval(0.2)
@@ -70,6 +72,14 @@ func JuugleMaps(open: bool):
 	juugle_sequence.tween_interval(1.5)
 	juugle_sequence.tween_callback(func(): %JuugleMaps.visible = false)
 	juugle_sequence.tween_callback(func(): Game.ins.Encounter(on_encounter))
+
+func IncreaseSignal() -> void:
+	if on_encounter == 1:
+		%Wifi2.modulate = signal_colour
+	if on_encounter == 2:
+		%Wifi3.modulate = signal_colour
+	if on_encounter == 3:
+		%Wifi4.modulate = signal_colour
 
 func AddFlash() -> void:
 	%Flash.visible = true

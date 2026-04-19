@@ -12,9 +12,7 @@ func _ready() -> void:
 
 func _process(_dt) -> void:
 	var mouse_pos: Vector2 = get_viewport().get_mouse_position()
-	var screen_size: Vector2 = get_viewport().size
-
-	var mouse_offset: Vector2 = Vector2((mouse_pos.x / screen_size.x) * 2.0 - 1.0, (mouse_pos.y / screen_size.y) * 2.0 - 1.0)
+	var mouse_offset: Vector2 = Vector2((mouse_pos.x / 1200) * 2.0 - 1.0, (mouse_pos.y / 900) * 2.0 - 1.0)
 	if mouse_offset.length() > 1.0:
 		mouse_offset = mouse_offset.normalized()
 	
