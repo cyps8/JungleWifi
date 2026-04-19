@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://bd8d5vi82caaj"]
+
+[ext_resource type="Script" uid="uid://dqfc5odr1b4p6" path="res://Scripts/phone.gd" id="1_t4m1d"]
+
+[sub_resource type="Gradient" id="Gradient_t4m1d"]
+offsets = PackedFloat32Array(0.36386138, 0.48267326, 0.60148513, 0.759901)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.40784314, 1, 1, 1, 0.32941177, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qgoqb"]
+gradient = SubResource("Gradient_t4m1d")
+width = 16
+height = 16
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="Phone" type="Control" unique_id=1726436012 node_paths=PackedStringArray("point")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 250.0
+offset_bottom = 310.0
+script = ExtResource("1_t4m1d")
+point = NodePath("ColorRect/Point")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1625756104]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.088508464, 0.39367503, 0.38487917, 1)
+
+[node name="Point" type="Control" parent="ColorRect" unique_id=1411540619]
+visible = false
+anchors_preset = 0
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/Point" unique_id=384022988]
+layout_mode = 0
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = SubResource("GradientTexture2D_qgoqb")

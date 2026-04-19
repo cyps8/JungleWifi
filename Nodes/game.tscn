@@ -7,9 +7,13 @@
 [ext_resource type="Texture2D" uid="uid://brbie6s6oibjc" path="res://Assets/snake.png" id="3_wi60h"]
 [ext_resource type="Script" uid="uid://cmcyfpaofcbsc" path="res://Scripts/cam.gd" id="3_y4gxr"]
 [ext_resource type="Material" uid="uid://ngacuja6ywou" path="res://Resources/SpriteMaterial.tres" id="4_deiy4"]
+[ext_resource type="Texture2D" uid="uid://lod44ahfjns5" path="res://Assets/Plant2.png" id="4_u8xq5"]
 [ext_resource type="Texture2D" uid="uid://cvelbpjkuoprv" path="res://Assets/SnakeHead.png" id="6_424rh"]
 [ext_resource type="Shader" uid="uid://bfxtiwpykse0u" path="res://Scripts/Shaders/game.gdshader" id="7_424rh"]
 [ext_resource type="Texture2D" uid="uid://cc2oijfaxwr2d" path="res://Assets/SnakeEye.png" id="7_fhu7r"]
+[ext_resource type="Texture2D" uid="uid://b3xuw3akrbbt1" path="res://Assets/phone.png" id="12_alc0v"]
+[ext_resource type="Script" uid="uid://4q2c44wdkm2e" path="res://Scripts/touch_screen.gd" id="13_bf6po"]
+[ext_resource type="PackedScene" uid="uid://bd8d5vi82caaj" path="res://Nodes/phone.tscn" id="13_sosg4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h85cu"]
 transparency = 2
@@ -44,6 +48,25 @@ albedo_texture = ExtResource("3_kwr2q")
 backlight_enabled = true
 backlight = Color(1, 1, 1, 1)
 backlight_texture = ExtResource("3_kwr2q")
+disable_receive_shadows = true
+billboard_mode = 2
+billboard_keep_scale = true
+stencil_flags = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_alc0v"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+depth_draw_mode = 1
+diffuse_mode = 1
+specular_mode = 1
+disable_ambient_light = true
+disable_specular_occlusion = true
+albedo_color = Color(0.019607844, 0.11764706, 0.0627451, 1)
+albedo_texture = ExtResource("4_u8xq5")
+backlight_enabled = true
+backlight = Color(1, 1, 1, 1)
+backlight_texture = ExtResource("4_u8xq5")
 disable_receive_shadows = true
 billboard_mode = 2
 billboard_keep_scale = true
@@ -84,6 +107,29 @@ stencil_flags = 2
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fhu7r"]
 shader = ExtResource("7_424rh")
 shader_parameter/target_colour = Color(0.019607844, 0.11764706, 0.0627451, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sosg4"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+depth_draw_mode = 1
+diffuse_mode = 1
+specular_mode = 1
+disable_ambient_light = true
+disable_specular_occlusion = true
+albedo_color = Color(0.019607844, 0.11764706, 0.0627451, 1)
+albedo_texture = ExtResource("12_alc0v")
+backlight_enabled = true
+backlight = Color(1, 1, 1, 1)
+backlight_texture = ExtResource("12_alc0v")
+disable_receive_shadows = true
+stencil_flags = 2
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_alc0v"]
+viewport_path = NodePath("Phone/Screen/Phone")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sosg4"]
+size = Vector3(2.4871216, 3.110279, 0.68322754)
 
 [node name="Game" type="Node3D" unique_id=1551477055]
 script = ExtResource("1_bfc22")
@@ -174,6 +220,51 @@ transform = Transform3D(0.05339069, 0, -0.04177043, 0, 0.0677889, 0, 0.04177043,
 material_override = SubResource("StandardMaterial3D_u8xq5")
 texture = ExtResource("3_kwr2q")
 
+[node name="Tree17" type="Sprite3D" parent="Map" unique_id=391818699]
+transform = Transform3D(0.05339069, 0, -0.04177043, 0, 0.0677889, 0, 0.04177043, 0, 0.05339069, -0.27252328, 0.041016728, 0.1053237)
+material_override = SubResource("StandardMaterial3D_alc0v")
+texture = ExtResource("4_u8xq5")
+
+[node name="Tree18" type="Sprite3D" parent="Map" unique_id=1384514475]
+transform = Transform3D(0.06468239, 0, -0.050604537, 0, 0.08212571, 0, 0.050604537, 0, 0.06468239, -0.38986906, 0.05160457, 0.07873948)
+material_override = SubResource("StandardMaterial3D_alc0v")
+flip_h = true
+texture = ExtResource("4_u8xq5")
+
+[node name="Tree19" type="Sprite3D" parent="Map" unique_id=2039284835]
+transform = Transform3D(0.03471887, 0, -0.027162453, 0, 0.044081733, 0, 0.027162453, 0, 0.03471887, -0.33360958, 0.028264888, 0.19709097)
+material_override = SubResource("StandardMaterial3D_alc0v")
+flip_h = true
+texture = ExtResource("4_u8xq5")
+
+[node name="Tree20" type="Sprite3D" parent="Map" unique_id=1108298918]
+transform = Transform3D(0.12695977, 0, -0.099327505, 0, 0.16119783, 0, 0.099327505, 0, 0.12695977, -0.33360958, 0.048667677, -0.36193568)
+material_override = SubResource("StandardMaterial3D_alc0v")
+flip_h = true
+texture = ExtResource("4_u8xq5")
+
+[node name="Tree21" type="Sprite3D" parent="Map" unique_id=636458816]
+transform = Transform3D(0.08227802, 0, -0.06437055, 0, 0.10446646, 0, 0.06437055, 0, 0.08227802, 0.34571612, 0.056244053, -0.13762137)
+material_override = SubResource("StandardMaterial3D_alc0v")
+texture = ExtResource("4_u8xq5")
+
+[node name="Tree22" type="Sprite3D" parent="Map" unique_id=1452230218]
+transform = Transform3D(0.040658806, 0, -0.031809583, 0, 0.051623527, 0, 0.031809583, 0, 0.040658806, 0.24106616, 0.024949826, 0.04317762)
+material_override = SubResource("StandardMaterial3D_alc0v")
+texture = ExtResource("4_u8xq5")
+
+[node name="Tree23" type="Sprite3D" parent="Map" unique_id=792606230]
+transform = Transform3D(0.0774181, 0, -0.060568362, 0, 0.09829593, 0, 0.060568362, 0, 0.0774181, 0.51645285, 0.04472824, 0.04317762)
+material_override = SubResource("StandardMaterial3D_alc0v")
+flip_h = true
+texture = ExtResource("4_u8xq5")
+
+[node name="Tree24" type="Sprite3D" parent="Map" unique_id=1261131222]
+transform = Transform3D(0.050438378, 0, -0.03946067, 0, 0.064040415, 0, 0.03946067, 0, 0.050438378, 0.2929557, 0.03618758, 0.1596223)
+material_override = SubResource("StandardMaterial3D_alc0v")
+flip_h = true
+texture = ExtResource("4_u8xq5")
+
 [node name="Tree9" type="Sprite3D" parent="Map" unique_id=1339782389]
 transform = Transform3D(0.050345827, 0, -0.03938827, 0, 0.06392291, 0, 0.03938827, 0, 0.050345827, 0.40025032, 0.41428226, 0.1221593)
 material_override = SubResource("StandardMaterial3D_u8xq5")
@@ -214,6 +305,15 @@ spot_attenuation = 0.0
 spot_angle = 25.0
 spot_angle_attenuation = 1e-05
 
+[node name="SpotInn2" type="SpotLight3D" parent="." unique_id=270196143]
+transform = Transform3D(1, 0, 0, 0, -0.08840753, 0.9960844, 0, -0.9960844, -0.08840753, 0, 0.38725635, 0.5623674)
+light_energy = 4.0
+shadow_enabled = true
+spot_range = 2.0
+spot_attenuation = 0.0
+spot_angle = 15.0
+spot_angle_attenuation = 1e-05
+
 [node name="Cam" type="Camera3D" parent="." unique_id=996256194]
 transform = Transform3D(1, 0, 0, 0, 0.9891419, 0.14696358, 0, -0.14696358, 0.9891419, 0, 0.26545143, 0.7065684)
 current = true
@@ -249,3 +349,31 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Phone" type="Sprite3D" parent="." unique_id=328742869]
+transform = Transform3D(0.020839013, 0, 0, 0, 0.0155833755, 0.013835568, 0, -0.013835568, 0.0155833755, 0, 0.19934216, 0.6254177)
+material_override = SubResource("StandardMaterial3D_sosg4")
+texture = ExtResource("12_alc0v")
+
+[node name="Screen" type="Sprite3D" parent="Phone" unique_id=483159706 node_paths=PackedStringArray("cam", "phone")]
+transform = Transform3D(1, 0, 0, 0, 1, 3.1041065e-08, 0, -3.1041065e-08, 1, 0, -0.035596848, -0.031604767)
+texture = SubResource("ViewportTexture_alc0v")
+script = ExtResource("13_bf6po")
+cam = NodePath("../../Cam")
+phone = NodePath("Phone/Phone")
+
+[node name="Phone" type="SubViewport" parent="Phone/Screen" unique_id=2052406501]
+disable_3d = true
+size = Vector2i(250, 310)
+
+[node name="Phone" parent="Phone/Screen/Phone" unique_id=1726436012 instance=ExtResource("13_sosg4")]
+
+[node name="Touch" type="StaticBody3D" parent="Phone/Screen" unique_id=1022373877]
+
+[node name="Square" type="CollisionShape3D" parent="Phone/Screen/Touch" unique_id=1665490826]
+transform = Transform3D(1, 0, 0, 0, 1, 2.980132e-08, 0, -2.980132e-08, 1, 0.00021362302, 0.00045967102, -0.33417702)
+shape = SubResource("BoxShape3D_sosg4")
+
+[node name="TopLeft" type="Node3D" parent="Phone/Screen" unique_id=588558495]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1.0000012, 0, 0, 0, 1.0000012, -1.2386938, 1.5592117, -0.007961273)
