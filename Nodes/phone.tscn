@@ -1,6 +1,14 @@
 [gd_scene format=3 uid="uid://bd8d5vi82caaj"]
 
 [ext_resource type="Script" uid="uid://dqfc5odr1b4p6" path="res://Scripts/phone.gd" id="1_t4m1d"]
+[ext_resource type="Theme" uid="uid://biuys74xg8fld" path="res://Resources/PhoneTheme.tres" id="2_qgoqb"]
+[ext_resource type="FontFile" uid="uid://cmmhhnftliv1k" path="res://Assets/Fonts/Roboto/static/Roboto-Bold.ttf" id="3_saynf"]
+[ext_resource type="Texture2D" uid="uid://buwts3llcu85k" path="res://Assets/Wifi/wifi1.png" id="4_abxd3"]
+[ext_resource type="Texture2D" uid="uid://chwl1a6ifppkx" path="res://Assets/Wifi/wifi2.png" id="5_h22kd"]
+[ext_resource type="Texture2D" uid="uid://hdqg8pbyqewr" path="res://Assets/Wifi/wifi3.png" id="6_nm1mx"]
+[ext_resource type="Texture2D" uid="uid://b411xi0jvetga" path="res://Assets/Wifi/wifi4.png" id="7_jrqug"]
+[ext_resource type="FontFile" uid="uid://c7lpnnbqsie24" path="res://Assets/Fonts/Roboto/static/Roboto-Medium.ttf" id="8_nm1mx"]
+[ext_resource type="Texture2D" uid="uid://df3mf7jqw1agh" path="res://Assets/Warning.png" id="9_jrqug"]
 
 [sub_resource type="Gradient" id="Gradient_t4m1d"]
 offsets = PackedFloat32Array(0.36386138, 0.48267326, 0.60148513, 0.759901)
@@ -13,13 +21,42 @@ height = 16
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nm1mx"]
+bg_color = Color(0.019607844, 0.11764706, 0.0627451, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="Gradient" id="Gradient_jrqug"]
+offsets = PackedFloat32Array(0.60148513, 0.6089109)
+colors = PackedColorArray(0.25490198, 0.81960785, 0.4862745, 1, 0.25490198, 0.81960785, 0.4862745, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_yfrrm"]
+gradient = SubResource("Gradient_jrqug")
+width = 32
+height = 32
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_nm1mx"]
+offsets = PackedFloat32Array(0.7029703, 0.7128713)
+colors = PackedColorArray(0.25490198, 0.81960785, 0.4862745, 1, 0.25490198, 0.81960785, 0.4862745, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jrqug"]
+gradient = SubResource("Gradient_nm1mx")
+width = 8
+height = 16
+fill_from = Vector2(1, 1)
+
 [node name="Phone" type="Control" unique_id=1726436012 node_paths=PackedStringArray("point")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 250.0
-offset_bottom = 310.0
+offset_bottom = 320.0
 script = ExtResource("1_t4m1d")
 point = NodePath("ColorRect/Point")
+signal_colour = Color(0.25490198, 0.81960785, 0.4862745, 1)
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1625756104]
 layout_mode = 1
@@ -28,10 +65,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.088508464, 0.39367503, 0.38487917, 1)
+color = Color(0.16178912, 0.38519332, 0.37521103, 1)
 
 [node name="Point" type="Control" parent="ColorRect" unique_id=1411540619]
 visible = false
+z_index = 3
 anchors_preset = 0
 
 [node name="TextureRect" type="TextureRect" parent="ColorRect/Point" unique_id=384022988]
@@ -42,3 +80,406 @@ offset_right = 8.0
 offset_bottom = 8.0
 pivot_offset_ratio = Vector2(0.5, 0.5)
 texture = SubResource("GradientTexture2D_qgoqb")
+
+[node name="StartButton" type="Button" parent="ColorRect" unique_id=2120747679 groups=["Button"]]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 53.0
+offset_top = 66.0
+offset_right = 195.0
+offset_bottom = 136.0
+theme = ExtResource("2_qgoqb")
+text = "START"
+
+[node name="NoSignal" type="Control" parent="ColorRect" unique_id=755189413]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="ColorRect/NoSignal" unique_id=2059410120]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 112.0
+offset_right = 203.0
+offset_bottom = 148.0
+theme_override_colors/font_color = Color(0.4781133, 0.22480488, 0.1346291, 1)
+theme_override_colors/font_shadow_color = Color(0.13725491, 0.13725491, 0.13725491, 0.2901961)
+theme_override_fonts/font = ExtResource("3_saynf")
+theme_override_font_sizes/font_size = 30
+text = "NO SIGNAL"
+
+[node name="ColorRect5" type="ColorRect" parent="ColorRect/NoSignal" unique_id=1876436488]
+layout_mode = 0
+offset_left = 87.0
+offset_top = 87.0
+offset_right = 100.0
+offset_bottom = 110.0
+mouse_filter = 2
+color = Color(0.24313726, 0.2901961, 0.25882354, 1)
+
+[node name="ColorRect6" type="ColorRect" parent="ColorRect/NoSignal" unique_id=279970860]
+layout_mode = 0
+offset_left = 109.0
+offset_top = 74.0
+offset_right = 122.0
+offset_bottom = 110.0
+mouse_filter = 2
+color = Color(0.24313726, 0.2901961, 0.25882354, 1)
+
+[node name="ColorRect7" type="ColorRect" parent="ColorRect/NoSignal" unique_id=1927611106]
+layout_mode = 0
+offset_left = 131.0
+offset_top = 54.0
+offset_right = 144.0
+offset_bottom = 110.0
+mouse_filter = 2
+color = Color(0.24313726, 0.2901961, 0.25882354, 1)
+
+[node name="ColorRect8" type="ColorRect" parent="ColorRect/NoSignal" unique_id=515098727]
+layout_mode = 0
+offset_left = 153.0
+offset_top = 32.0
+offset_right = 166.0
+offset_bottom = 110.0
+mouse_filter = 2
+color = Color(0.24313726, 0.2901961, 0.25882354, 1)
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect/NoSignal" unique_id=937998271]
+layout_mode = 0
+offset_left = 86.0
+offset_top = 86.0
+offset_right = 99.0
+offset_bottom = 109.0
+mouse_filter = 2
+color = Color(0.47843137, 0.22352941, 0.13333334, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="ColorRect/NoSignal" unique_id=748564258]
+layout_mode = 0
+offset_left = 108.0
+offset_top = 73.0
+offset_right = 121.0
+offset_bottom = 109.0
+mouse_filter = 2
+color = Color(0.47843137, 0.22352941, 0.13333334, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="ColorRect/NoSignal" unique_id=1788273331]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 53.0
+offset_right = 143.0
+offset_bottom = 109.0
+mouse_filter = 2
+color = Color(0.47843137, 0.22352941, 0.13333334, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="ColorRect/NoSignal" unique_id=1070857400]
+layout_mode = 0
+offset_left = 152.0
+offset_top = 31.0
+offset_right = 165.0
+offset_bottom = 109.0
+mouse_filter = 2
+color = Color(0.47843137, 0.22352941, 0.13333334, 1)
+
+[node name="ColorRect9" type="ColorRect" parent="ColorRect/NoSignal" unique_id=1031554096]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 88.0
+offset_right = 97.0
+offset_bottom = 107.0
+mouse_filter = 2
+color = Color(0.24313726, 0.2901961, 0.25882354, 1)
+
+[node name="ColorRect10" type="ColorRect" parent="ColorRect/NoSignal" unique_id=1476346010]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 75.0
+offset_right = 119.0
+offset_bottom = 107.0
+mouse_filter = 2
+color = Color(0.24313726, 0.2901961, 0.25882354, 1)
+
+[node name="ColorRect11" type="ColorRect" parent="ColorRect/NoSignal" unique_id=441370957]
+layout_mode = 0
+offset_left = 132.0
+offset_top = 55.0
+offset_right = 141.0
+offset_bottom = 107.0
+mouse_filter = 2
+color = Color(0.24313726, 0.2901961, 0.25882354, 1)
+
+[node name="ColorRect12" type="ColorRect" parent="ColorRect/NoSignal" unique_id=288078479]
+layout_mode = 0
+offset_left = 154.0
+offset_top = 33.0
+offset_right = 163.0
+offset_bottom = 107.0
+mouse_filter = 2
+color = Color(0.24313726, 0.2901961, 0.25882354, 1)
+
+[node name="ColorRect13" type="ColorRect" parent="ColorRect/NoSignal" unique_id=1304893231]
+layout_mode = 0
+offset_left = 89.0
+offset_top = 89.0
+offset_right = 97.0
+offset_bottom = 107.0
+mouse_filter = 2
+color = Color(0.16078432, 0.38431373, 0.3764706, 1)
+
+[node name="ColorRect14" type="ColorRect" parent="ColorRect/NoSignal" unique_id=939164925]
+layout_mode = 0
+offset_left = 111.0
+offset_top = 76.0
+offset_right = 119.0
+offset_bottom = 107.0
+mouse_filter = 2
+color = Color(0.16078432, 0.38431373, 0.3764706, 1)
+
+[node name="ColorRect15" type="ColorRect" parent="ColorRect/NoSignal" unique_id=1520530738]
+layout_mode = 0
+offset_left = 133.0
+offset_top = 56.0
+offset_right = 141.0
+offset_bottom = 107.0
+mouse_filter = 2
+color = Color(0.16078432, 0.38431373, 0.3764706, 1)
+
+[node name="ColorRect16" type="ColorRect" parent="ColorRect/NoSignal" unique_id=3194494]
+layout_mode = 0
+offset_left = 155.0
+offset_top = 34.0
+offset_right = 163.0
+offset_bottom = 107.0
+mouse_filter = 2
+color = Color(0.16078432, 0.38431373, 0.3764706, 1)
+
+[node name="JungleWifi" type="Button" parent="ColorRect" unique_id=274180503 groups=["Button"]]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 7.0
+offset_top = 6.0
+offset_right = 244.0
+offset_bottom = 49.0
+theme = ExtResource("2_qgoqb")
+text = "   Jungle Wifi"
+alignment = 0
+
+[node name="Wifi1" type="TextureRect" parent="ColorRect/JungleWifi" unique_id=1587190787]
+modulate = Color(0.25490198, 0.81960785, 0.4862745, 1)
+layout_mode = 0
+offset_left = 183.0
+offset_right = 223.0
+offset_bottom = 40.0
+mouse_filter = 2
+texture = ExtResource("4_abxd3")
+expand_mode = 1
+
+[node name="Wifi2" type="TextureRect" parent="ColorRect/JungleWifi" unique_id=141894392]
+unique_name_in_owner = true
+modulate = Color(0.019607844, 0.11764706, 0.0627451, 1)
+layout_mode = 0
+offset_left = 183.0
+offset_right = 223.0
+offset_bottom = 40.0
+mouse_filter = 2
+texture = ExtResource("5_h22kd")
+expand_mode = 1
+
+[node name="Wifi3" type="TextureRect" parent="ColorRect/JungleWifi" unique_id=1242106963]
+unique_name_in_owner = true
+modulate = Color(0.019607844, 0.11764706, 0.0627451, 1)
+layout_mode = 0
+offset_left = 183.0
+offset_right = 223.0
+offset_bottom = 40.0
+mouse_filter = 2
+texture = ExtResource("6_nm1mx")
+expand_mode = 1
+
+[node name="Wifi4" type="TextureRect" parent="ColorRect/JungleWifi" unique_id=1582203563]
+unique_name_in_owner = true
+modulate = Color(0.019607844, 0.11764706, 0.0627451, 1)
+layout_mode = 0
+offset_left = 183.0
+offset_right = 223.0
+offset_bottom = 40.0
+mouse_filter = 2
+texture = ExtResource("7_jrqug")
+expand_mode = 1
+
+[node name="Password" type="Control" parent="ColorRect" unique_id=2129347744]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="ColorRect/Password" unique_id=517187756]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 53.0
+offset_right = 162.0
+offset_bottom = 76.0
+theme_override_colors/font_color = Color(0.25490198, 0.81960785, 0.4862745, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.16078432)
+theme_override_fonts/font = ExtResource("8_nm1mx")
+text = "ENTER PASSWORD:"
+
+[node name="Enter" type="LineEdit" parent="ColorRect/Password" unique_id=988775993]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 17.0
+offset_top = 76.0
+offset_right = 225.0
+offset_bottom = 107.0
+theme_override_colors/font_color = Color(0.25490198, 0.81960785, 0.4862745, 1)
+theme_override_fonts/font = ExtResource("3_saynf")
+theme_override_font_sizes/font_size = 20
+alignment = 1
+max_length = 10
+secret = true
+
+[node name="Wrong" type="Label" parent="ColorRect/Password" unique_id=640759937]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 33.0
+offset_top = 112.0
+offset_right = 209.0
+offset_bottom = 135.0
+theme_override_colors/font_color = Color(0.47843137, 0.22352941, 0.13333334, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.29803923)
+theme_override_fonts/font = ExtResource("8_nm1mx")
+text = "PASSWORD INCORRECT"
+
+[node name="Correct" type="Label" parent="ColorRect/Password" unique_id=676999547]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 33.0
+offset_top = 112.0
+offset_right = 209.0
+offset_bottom = 135.0
+theme_override_colors/font_color = Color(0.25490198, 0.81960785, 0.4862745, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.29803923)
+theme_override_fonts/font = ExtResource("8_nm1mx")
+text = "PASSWORD ACCEPTED"
+
+[node name="JuugleMaps" type="Control" parent="ColorRect" unique_id=1118218706]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="ColorRect/JuugleMaps" unique_id=1314454847]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 54.0
+offset_right = 239.0
+offset_bottom = 309.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_nm1mx")
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/JuugleMaps/Panel" unique_id=1978613491]
+layout_mode = 0
+offset_left = 95.0
+offset_top = 159.0
+offset_right = 127.0
+offset_bottom = 191.0
+texture = SubResource("GradientTexture2D_yfrrm")
+
+[node name="Path" type="TextureRect" parent="ColorRect/JuugleMaps/Panel" unique_id=1172688657]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 107.0
+offset_top = 167.0
+offset_right = 115.0
+offset_bottom = 255.0
+texture = SubResource("GradientTexture2D_jrqug")
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="ColorRect/JuugleMaps" unique_id=1511077103]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 59.0
+offset_right = 191.0
+offset_bottom = 83.0
+theme_override_colors/font_color = Color(0.25490198, 0.81960785, 0.4862745, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.41960785)
+theme_override_fonts/font = ExtResource("3_saynf")
+theme_override_font_sizes/font_size = 20
+text = "JUUGLE MAPS"
+
+[node name="Warning" type="TextureRect" parent="ColorRect/JuugleMaps" unique_id=481170076]
+unique_name_in_owner = true
+visible = false
+modulate = Color(0.25490198, 0.81960785, 0.4862745, 1)
+layout_mode = 0
+offset_left = 52.0
+offset_top = 93.0
+offset_right = 192.0
+offset_bottom = 233.0
+texture = ExtResource("9_jrqug")
+expand_mode = 1
+
+[node name="Flash" type="Button" parent="ColorRect" unique_id=1532933309 groups=["Button"]]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 49.0
+offset_top = 86.0
+offset_right = 200.0
+offset_bottom = 183.0
+theme = ExtResource("2_qgoqb")
+text = "FLASH"
+
+[node name="Win" type="Control" parent="ColorRect" unique_id=1959337747]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="ColorRect/Win" unique_id=12630084]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 98.0
+offset_right = 242.0
+offset_bottom = 216.0
+theme_override_colors/font_color = Color(0.25490198, 0.81960785, 0.4862745, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.3529412)
+theme_override_fonts/font = ExtResource("3_saynf")
+theme_override_font_sizes/font_size = 20
+text = "YOU GOT SIGNAL!
+THANKS FOR PLAYING!
+<3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="ColorRect/Win" unique_id=2140179028 groups=["Button"]]
+layout_mode = 0
+offset_left = 74.0
+offset_top = 232.0
+offset_right = 177.0
+offset_bottom = 270.0
+theme = ExtResource("2_qgoqb")
+theme_override_font_sizes/font_size = 20
+text = "LEAVE"
+
+[connection signal="pressed" from="ColorRect/StartButton" to="." method="StartPressed"]
+[connection signal="pressed" from="ColorRect/JungleWifi" to="." method="JungleWifiPressed"]
+[connection signal="pressed" from="ColorRect/Flash" to="." method="FlashPressed"]
+[connection signal="pressed" from="ColorRect/Win/Button" to="." method="Quit"]

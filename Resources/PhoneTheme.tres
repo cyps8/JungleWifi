@@ -1,0 +1,18 @@
+[gd_resource type="Theme" format=3 uid="uid://biuys74xg8fld"]
+
+[ext_resource type="FontFile" uid="uid://cmmhhnftliv1k" path="res://Assets/Fonts/Roboto/static/Roboto-Bold.ttf" id="1_v1r7o"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oa12n"]
+bg_color = Color(0.101960786, 0.34901962, 0.20392157, 1)
+border_width_bottom = 3
+border_color = Color(0.019607844, 0.11764706, 0.0627451, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[resource]
+default_font = ExtResource("1_v1r7o")
+default_font_size = 30
+Button/colors/font_color = Color(0.25490198, 0.81960785, 0.4862745, 1)
+Button/styles/normal = SubResource("StyleBoxFlat_oa12n")
